@@ -17,30 +17,64 @@ static java.util.Scanner kb = new java.util.Scanner(System.in);
 		} else if (payment < price) {
 			System.out.println("I'm sorry, that's not enough.");
 		} else {
-			change = price - payment;
+			change = payment - price;
 				int wholeDollars = (int)(change); //casting double to int to get whole dollars
 				
-				if (wholeDollars % 20 == 0) {
+				if (wholeDollars / 20 >= 1) {
 					int bills20 = wholeDollars / 20;
-					System.out.println("I will give you " + bills20 + "twenty dollar bills.");
+					int remainder = wholeDollars % 20;
+					System.out.println("I will give you " + bills20 + " twenty dollar bill(s)");
+					
+					if (remainder / 10 >=1) {
+						int bills10 = remainder /10;
+						System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
+					}
+					else if (remainder / 5 >= 1) {
+						int bills5 = remainder / 5;
+						System.out.println("I will give you " + bills5 + " five dollar bill(s)");
+						}
+					else if (remainder / 1 >=1) {
+						int bills1 = remainder / 1;
+						System.out.println("I will give you " + bills1 + " one dollar bill(s)");
+					}
+					
+					
+//					if (bills20 % 20 != 0) {
+//						int remainder = bills20 ;
+//						System.out.println(remainder);
+//					}
 				}
-				else if (wholeDollars % 10 == 0 ) {
+				else if (wholeDollars / 10 >= 1 ) {
+					if (wholeDollars % 10 == 0) {
 					int bills10 = wholeDollars / 10;
-					System.out.println("I will give you " + bills10 + "ten dollar bills.");
+					System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
+					}
+					else {
+						
+					}
 				}
-				else if (wholeDollars % 5 == 0 ) {
+				else if (wholeDollars / 5 >= 1 ) {
 					int bills5 = wholeDollars / 5;
-					System.out.println("I will give you " + bills5 + "five dollar bills.");
+					System.out.println("I will give you " + bills5 + " five dollar bill(s).");
 				}
-				else if (wholeDollars % 1 == 0) {
+				else if (wholeDollars / 1 >= 1) {
 					int bills1 = wholeDollars / 1;
-					System.out.println("I will give you " + bills1 + "one dollar bills.");
+					System.out.println("I will give you " + bills1 + " one dollar bill(s).");
 				}
 				else {
 					System.out.println("No bills for you.");
 				}
 				
-				double coins = change - wholeDollars;
+				
+				
+				
+				
+				
+				//COINS DOWN HERE
+				
+				
+				
+				double coins = change - wholeDollars; //trying to get change
 				
 				if (coins % 0.25 == 0) {
 					double quarters = coins / 25;
