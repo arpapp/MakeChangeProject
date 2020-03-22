@@ -18,6 +18,9 @@ public class MakeChangeApp {
 			System.out.println("I'm sorry, that's not enough.");
 		} else {
 			change = payment - price;
+			
+			System.out.printf("Your change is $%.2f.%n", change);
+			
 			int wholeDollars = (int) (change); // casting double to int to get whole dollars
 			double cents = change - wholeDollars; //getting cents
 
@@ -122,6 +125,8 @@ public class MakeChangeApp {
 			    numPennies = (int) (pennies);
 				cents = cents - numPennies;
 			}
+			
+			
 			System.out.println("I will give you " + numQuarters + " quarters, " + numDimes + " dimes, " 
 					+ numNickels + " nickels, and " + numPennies + " pennies.");
 			
