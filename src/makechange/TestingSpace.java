@@ -2,70 +2,72 @@ package makechange;
 
 public class TestingSpace {
 
+	static java.util.Scanner kb = new java.util.Scanner(System.in);
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		double price, payment, change, bills20 = 0, bills10 = 0, bills5 = 0, bills1 = 0, quarters = 0, nickels = 0, dimes = 0, pennies = 0;
 
-//		
-//		In addition to println(), System.out provides the printf() method to print formatted strings.
-////
-//		int i = 17;
-//		System.out.printf("%d in hexadecimal is %x.%n", i, i);
-////		// 17 in hexadecimal is 11.
-////		printf() takes a format string and a variable list of arguments (an example of a varargs method.)
-////
-////		The format string contains literal text, as well as format specifiers that start with %.
-////
-////		Each parameter after the format string is substituted into the corresponding format specifier for output.
-////
-////		The letter in the format specifier tells printf() how to convert the value for printing:
-////
-////		d - as a decimal integer
-////		o - as an octal integer
-////		x - as a hexadecimal integer
-////		f - as a floating-point number
-////		a - as a floating-point number in hexadecimal
-////		s - as a string
-////		Other special format specifiers include:
-////
-////		%n - a newline: unlike println(), printf() doesn't output a newline unless you tell it to.
-////		%% - a literal %.
-//
-//		double x = 17.98;
-//		System.out.printf("%.2f", x);
-		
-		
-		int price = 50, payment = 64;
-		double change = payment - price;
-		int wholeDollars = (int)(change); //casting double to int to get whole dollars
-		
-		
-		if (wholeDollars / 20 >= 1) {
-			int bills20 = wholeDollars / 20;
-			System.out.println("I will give you " + bills20 + " twenty dollar bill(s).");
-		}
-		else if (wholeDollars / 10 >= 1 ) {
-			if (wholeDollars % 10 == 0) {
-			int bills10 = wholeDollars / 10;
-			System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
+		System.out.println("Enter the total price: ");
+		price = kb.nextDouble();
+		System.out.println("Enter your payment: ");
+		payment = kb.nextDouble();
+
+		if (price == payment) {
+			System.out.println(
+					"Thank you for the exact change. Where were you when I was working Christmas at Toys R Us?");
+		} else if (payment < price) {
+			System.out.println("I'm sorry, that's not enough.");
+		} else {
+			change = payment - price;
+			int wholeDollars = (int) (change); // casting double to int to get whole dollars
+			double cents = change - wholeDollars;
+			while (wholeDollars >= 20) {
+				bills20 = bills20 + 1;
+				wholeDollars = wholeDollars - 20;
+				} 
+			while (wholeDollars >= 10 ) {
+				bills10 = bills10 + 1;
+				wholeDollars = wholeDollars - 10;
 			}
-			else {
-				
+			while (wholeDollars >= 5) {
+				bills5 = bills5 + 1;
+				wholeDollars = wholeDollars - 5;
 			}
+			while (wholeDollars >= 1) {
+				bills1 = bills1 + 1;
+				wholeDollars = wholeDollars - 1;
+			}
+					
+			while (cents >= 0.25) {
+				quarters = quarters + 1;
+				cents = cents - 0.25;
+			}
+			while (cents >= 0.1) {
+				dimes = dimes + 1;
+				cents = cents - 0.1;
+			}
+			while (cents >= 0.05) {
+				nickels = nickels + 1;
+				cents = cents - 0.5;
+			}
+			while (cents >= 0.01) {
+				pennies = pennies + 1;
+				cents = cents - 0.01;
+			}
+			System.out.println("You get " + bills20 + " twenties " + bills10 + " tens " + bills5 + " fives and " + bills1 + " ones.");
+			System.out.println("You get " + quarters + " quarters " + dimes + " dimes " + nickels + " nickels and " + pennies + " pennies.");
+			
+			
+			
+			
+			
+			
+			
+			
 		}
-		else if (wholeDollars / 5 >= 1 ) {
-			int bills5 = wholeDollars / 5;
-			System.out.println("I will give you " + bills5 + " five dollar bill(s).");
-		}
-		else if (wholeDollars / 1 >= 1) {
-			int bills1 = wholeDollars / 1;
-			System.out.println("I will give you " + bills1 + " one dollar bill(s).");
-		}
-		else {
-			System.out.println("No bills for you.");
-		}
-		
-		
-		
+
 	}
-
+	
 }
+
+
