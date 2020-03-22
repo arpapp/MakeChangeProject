@@ -81,11 +81,11 @@ public class MakeChangeApp {
 				 cents = cents - (numNickels * 5);
 				 System.out.println("I will give you " + numNickels + " nickel(s).");
 			}
-			while (cents / 1 >= 1) {
+			while (cents / 1 >= 0.009) {
 				pennies = (cents / 1) + 0.005;
 			    numPennies = (int) (pennies);
 				cents = cents - numPennies;
-				System.out.println("I will give you " + numPennies + " pennie(s).");
+				System.out.println("I will give you " + numPennies + " penny(ies).");
 			}
 			
 		}
