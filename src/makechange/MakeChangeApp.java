@@ -24,74 +24,32 @@ public class MakeChangeApp {
 			int wholeDollars = (int) (change); // casting double to int to get whole dollars
 			double cents = change - wholeDollars; //getting cents
 
-			if (wholeDollars / 20 >= 1) {
-				int bills20 = wholeDollars / 20;
-				int remainder = wholeDollars % 20;
+			int bills20 = 0;
+			int bills10 = 0;
+			int bills5 = 0;
+			int bills1 = 0;
+			
+			while (wholeDollars / 20 >= 1) {
+				bills20 = wholeDollars / 20;
+				wholeDollars = wholeDollars - (bills20 * 20);
 				System.out.println("I will give you " + bills20 + " twenty dollar bill(s)");
-
-				if (remainder / 10 >= 1) {
-					int bills10 = remainder / 10;
-					int remainder2 = remainder % 10;
-					System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
-
-					if (remainder2 / 5 >= 1) {
-						int bills5 = remainder2 / 5;
-						int remainder3 = remainder2 % 5;
-						System.out.println("I will give you " + bills5 + " five dollar bill(s).");
-
-						if (remainder3 >= 1) {
-							int bills1 = remainder3 / 1;
-							System.out.println("I will give you " + bills1 + " one dollar bill(s)");
-						}
-					}
-					else if (remainder2 >= 1) {
-						int bills1 = remainder2 /1;
-						System.out.println("I will give you " + bills1 + " one dollar bill(s).");
-					}
 				}
-				else if (remainder / 5 >= 1) {
-					int bills5 = remainder / 5;
-					int remainder2 = remainder % 5;
-					System.out.println("I will give you " + bills5 + " five dollar bill(s).");
-					
-					if (remainder2 / 1 >= 1) {
-						int bills1 = remainder2 / 1;
-						System.out.println("I will give you " + bills1 + " one dollar bill(s). ");
-					}
-				}
-			} else if (wholeDollars / 10 >= 1) {
-				int bills10 = wholeDollars / 10;
-				int remainder = wholeDollars % 10;
-				System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
-
-				if (remainder / 5 >= 1) {
-					int bills5 = remainder / 5;
-					int remainder2 = remainder % 5;
-					System.out.println("I will give you " + bills5 + " five dollar bill(s).");
-
-					if (remainder2 >= 1) {
-						int bills1 = remainder2 / 1;
-						System.out.println("I will give you " + bills1 + " one dollar bill(s)");
-					}
-
-				}
-				else if (remainder / 1 >= 1) {
-					int bills1 = remainder / 1;
-					System.out.println("I will give you " + bills1 + " one dollar bill(s). ");
-				}
-			} else if (wholeDollars / 5 >= 1) {
-					int bills5 = wholeDollars / 5;
-					int remainder = wholeDollars % 5;
-					System.out.println("I will give you " + bills5 + " five dollar bill(s).");
-
-					if (remainder >= 1) {
-						int bills1 = remainder / 1;
-						System.out.println("I will give you " + bills1 + " one dollar bill(s)");
-					}
-			} else if (wholeDollars / 1 >= 1) {
-				int bills1 = wholeDollars / 1;
-				System.out.println("I will give you " + bills1 + " one dollar bill(s).");
+			while (wholeDollars / 10 >= 1) {
+				bills10 = wholeDollars / 10;
+				wholeDollars = wholeDollars - (bills10 * 10);
+				System.out.println("I will give you " + bills10 + " ten dollar bills(.)");
 			}
+			while (wholeDollars / 5 >=1) {
+				bills5 = wholeDollars / 5;
+				wholeDollars = wholeDollars - (bills5 * 5);
+				System.out.println("I will give you " + bills5 + " five dollar bills(.)");
+			}
+			while (wholeDollars / 1 >= 1) {
+				bills1 = wholeDollars / 1;
+				wholeDollars = wholeDollars - bills1;
+				System.out.println("I will give you " + bills1 + " one dollar bills(.)");
+			}
+					
 			
 			
 			//Coins down here
@@ -109,26 +67,26 @@ public class MakeChangeApp {
 				quarters = cents / 25;
 				numQuarters = (int) (quarters);
 				cents = cents - (numQuarters * 25);
+				System.out.println("I will give you " + numQuarters + " quarter(s).");
 			}
 			while (cents / 10 >= 1) {
 				dimes = cents / 10;
 				numDimes = (int) (dimes);
 				cents = cents - (numDimes * 10);
+				System.out.println("I will give you " + numDimes + " dime(s).");
 			}
 			while (cents / 5 >= 1) {
 				 nickels = cents / 5;
 				numNickels = (int) (nickels);
 				 cents = cents - (numNickels * 5);
+				 System.out.println("I will give you " + numNickels + " nickel(s).");
 			}
 			while (cents / 1 >= 1) {
 				pennies = (cents / 1) + 0.005;
 			    numPennies = (int) (pennies);
 				cents = cents - numPennies;
+				System.out.println("I will give you " + numPennies + " pennie(s).");
 			}
-			
-			
-			System.out.println("I will give you " + numQuarters + " quarters, " + numDimes + " dimes, " 
-					+ numNickels + " nickels, and " + numPennies + " pennies.");
 			
 		}
 			
