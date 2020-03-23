@@ -6,10 +6,12 @@ public class MakeChangeApp {
 
 	public static void main(String[] args) {
 		double price, payment, change;
+		String answer;
 		System.out.println("Enter the total price: ");
 		price = kb.nextDouble();
 		System.out.println("Enter your payment: ");
 		payment = kb.nextDouble();
+		
 
 		if (price == payment) {
 			System.out.println(
@@ -37,21 +39,19 @@ public class MakeChangeApp {
 			while (wholeDollars / 10 >= 1) {
 				bills10 = wholeDollars / 10;
 				wholeDollars = wholeDollars - (bills10 * 10);
-				System.out.println("I will give you " + bills10 + " ten dollar bills(.)");
+				System.out.println("I will give you " + bills10 + " ten dollar bill(s).");
 			}
 			while (wholeDollars / 5 >=1) {
 				bills5 = wholeDollars / 5;
 				wholeDollars = wholeDollars - (bills5 * 5);
-				System.out.println("I will give you " + bills5 + " five dollar bills(.)");
+				System.out.println("I will give you " + bills5 + " five dollar bill(s).");
 			}
 			while (wholeDollars / 1 >= 1) {
 				bills1 = wholeDollars / 1;
 				wholeDollars = wholeDollars - bills1;
-				System.out.println("I will give you " + bills1 + " one dollar bills(.)");
+				System.out.println("I will give you " + bills1 + " one dollar bill(s).");
 			}
 					
-			
-			
 			//Coins down here
 			
 			double quarters = 0;
@@ -92,7 +92,6 @@ public class MakeChangeApp {
 			
 	}
 }
-
 
 
 
